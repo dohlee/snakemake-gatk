@@ -8,12 +8,19 @@ from os import path
 
 from snakemake.shell import shell
 
+def optionify(parameter, option):
+    """Return optionified parameter."""
+    try:
+        return option + ' ' + snakemake.params[parameter]
+    except AttributeError:
+        return ''
+
 # Extract log.
 log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
 extra = snakemake.params.get('extra', '')
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
-germline_resource = '--germline-resource ' + snakemake.params.germline_resource if 'germline_resource' in snakemake.params else ''
+germline_resource = optionify('germline_resource', '--germline-resource')
 tumor_sample_name = snakemake.params.get('tumor_sample_name', 'tumor')
 normal_sample_name = snakemake.params.get('normal_sample_name', 'normal')
 
