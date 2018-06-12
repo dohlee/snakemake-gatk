@@ -8,7 +8,14 @@ from os import path
 
 from snakemake.shell import shell
 
-def optionify(parameter, option):
+def optionify_input(parameter, option):
+    """Return optionified parameter."""
+    try:
+        return option + ' ' + snakemake.input[parameter]
+    except AttributeError:
+        return ''
+
+def optionify_params(parameter, option):
     """Return optionified parameter."""
     try:
         return option + ' ' + snakemake.params[parameter]
