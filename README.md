@@ -14,3 +14,5 @@ Snakemake wrappers for GATK.
   - [create-sequence-dictionary](gatk/reference/create-sequence-dictionary)
 - mutect2
   - [tumor-normal](gatk/mutect2/tumor-normal)
+- misc
+  - [index-feature-file](gatk/misc/index-feature-file)
