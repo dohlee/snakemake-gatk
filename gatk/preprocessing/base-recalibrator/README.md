@@ -1,4 +1,4 @@
-# BaseRecalibrator
+# BaseRecalibrator ([doc](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php))
 
 generate recalibration table for Base Quality Score Recalibration (BQSR).
 
