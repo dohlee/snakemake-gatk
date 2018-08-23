@@ -25,7 +25,6 @@ def optionify_params(parameter, option):
 # Extract log.
 log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
-extra = snakemake.params.get('extra', '')
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
 
 # Extract required arguments.
