@@ -6,7 +6,7 @@ create sequence dictionary for reference fasta.
 
 - *{reference}*.fasta -> *{reference}*.fasta.dict
 
-## Example snakemake rules.
+## Example snakemake rules
 
 ```python
 rule create_sequence_dictionary:
