@@ -12,7 +12,7 @@ from snakemake.shell import shell
 log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
 extra = snakemake.params.get('extra', '')
-java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
+java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx32g')
 
 # Extract required arguments.
 input = snakemake.input[0]
@@ -24,6 +24,11 @@ if len(snakemake.output) == 2:
 else:
     metrics_command = ''
 
+# Too many file handles may throw an error.
+# The maximum number of opened file handles can be checked through `ulimit -n` command.
+if 'MAX_FILE_HANDLES' not in extra:
+    extra += ' -MAX_FILE_HANDLES 2000'
+
 # Execute shell command.
 shell(
     "("
@@ -32,7 +37,8 @@ shell(
     "MarkDuplicates "
     "--INPUT {input} "
     "--OUTPUT {output} "
-    "{metrics_command}"
+    "{metrics_command} "
+    "{extra}"
     ")"
     "{log}"
 )
