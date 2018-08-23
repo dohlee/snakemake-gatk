@@ -20,5 +20,6 @@ To utilize [public resources](https://console.cloud.google.com/storage/browser/g
 - **preprocessing**: preprocess aligned read files
   - [mark-duplicates](gatk/preprocessing/mark-duplicates): wrapper for [MarkDuplicates](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.4.0/picard_sam_markduplicates_MarkDuplicates.php)
   - [base-recalibrator](gatk/preprocessing/base-recalibrator): wrapper for [BaseRecalibrator](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php)
+  - [apply-bqsr](gatk/preprocessing/apply-bqsr): wrapper for [ApplyBQSR](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_ApplyBQSR.php)
 - **misc**: miscellaneous
   - [index-feature-file](gatk/misc/index-feature-file): wrapper for [IndexFeatureFile](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/org_broadinstitute_hellbender_tools_IndexFeatureFile.php)
