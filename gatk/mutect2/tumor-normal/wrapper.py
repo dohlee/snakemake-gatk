@@ -26,7 +26,7 @@ def optionify_params(parameter, option):
 log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
 extra = snakemake.params.get('extra', '')
-java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
+java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx64g')
 tumor_sample_name = snakemake.params.get('tumor_sample_name', path.splitext(path.basename(snakemake.input.tumor))[0])
 normal_sample_name = snakemake.params.get('normal_sample_name', path.splitext(path.basename(snakemake.input.normal))[0])
 
