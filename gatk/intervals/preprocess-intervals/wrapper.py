@@ -32,9 +32,10 @@ reference = snakemake.input.reference
 output = snakemake.output[0]
 
 # Extract optional arguments
-interval_list = snakemake.params.get('interval_list', '--intervals')
-bin_length = snakemake.params.get('bin_length', '--bin-length')
-padding = snakemake.params.get('padding', 'padding')
+extra = snakemake.params.get('extra', '')
+interval_list = optionify_params('interval_list', '--intervals')
+bin_length = optionify_params('bin_length', '--bin-length')
+padding = optionify_params('padding', '--padding')
 
 # Execute shell command.
 shell(
