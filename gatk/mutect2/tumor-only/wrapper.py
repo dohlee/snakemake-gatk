@@ -27,7 +27,7 @@ log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
 extra = snakemake.params.get('extra', '')
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
-sample_name = snakemake.params.get('sample_name', path.basename(path.basename(bam)))
+sample_name = snakemake.params.get('sample_name', path.basename(path.basename(snakemake.input.bam)))
 
 # Extract required input arguments.
 reference = snakemake.input.reference
@@ -55,10 +55,9 @@ shell(
     "Mutect2 "
     "--reference {reference} "
     "--input {bam} "
-    "-tumor {tumor_sample_name} "
+    "-tumor {sample_name} "
     "{germline_resource_option} "
     "--output {output} "
-    "-nct {snakemake.threads} "
     ")"
     "{log}"
 )

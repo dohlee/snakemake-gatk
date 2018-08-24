@@ -67,7 +67,6 @@ shell(
     "{germline_resource_option} "
     "{panel_of_normals_option} "
     "--output {output} "
-    "-nct {snakemake.threads} "
     ")"
     "{log}"
 )
