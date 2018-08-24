@@ -23,5 +23,7 @@ To utilize [public resources](https://console.cloud.google.com/storage/browser/g
   - [apply-bqsr](gatk/preprocessing/apply-bqsr): wrapper for [ApplyBQSR](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_ApplyBQSR.php)
 - **intervals**: manipulate list of genomic intervals
   - [preprocess-intervals](gatk/intervals/preprocess-intervals): wrapper for [PreprocessIntervals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_PreprocessIntervals.php)
+- **coverage**: count reads
+  - [collect-read-counts](gatk/coverage/collect-read-counts): wrapper for [CollectReadCounts](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_CollectReadCounts.php)
 - **misc**: miscellaneous
   - [index-feature-file](gatk/misc/index-feature-file): wrapper for [IndexFeatureFile](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/org_broadinstitute_hellbender_tools_IndexFeatureFile.php)
