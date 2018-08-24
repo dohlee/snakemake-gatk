@@ -27,27 +27,21 @@ log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
 extra = snakemake.params.get('extra', '')
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
-tumor_sample_name = snakemake.params.get('tumor_sample_name', path.basename(snakemake.input.tumor))
-normal_sample_name = snakemake.params.get('normal_sample_name', path.basename(snakemake.input.normal))
+sample_name = snakemake.params.get('sample_name', path.basename(path.basename(bam)))
 
 # Extract required input arguments.
 reference = snakemake.input.reference
-tumor_bam = snakemake.input.tumor
-normal_bam = snakemake.input.normal
+bam = snakemake.input.bam
 
 # Extract optional input arguments.
 germline_resource_option = ''
 if '--germline-resource' not in extra:
     germline_resource_option = optionify_input('germline_resource', '--germline-resource')
 
-panel_of_normals_option = ''
-if '--panel-of-normals' not in extra and '-pon' not in extra:
-    panel_of_normals_option = optionify_input('panel_of_normals', '--panel-of-normals')
-
 # Extract parameters.
 # NOTE: This option is decided to be included by default according to the article
 # https://gatkforums.broadinstitute.org/gatk/discussion/11136
-if ('--disable-read-filter' not in extra) and ('-DF' not in extra):
+if '--disable-read-filter' not in extra and '-DF' not in extra:
     extra += ' --disable-read-filter MateOnSameContigOrNoMappedMateReadFilter'
 
 # Extract output
@@ -60,12 +54,9 @@ shell(
     "{java_options} "
     "Mutect2 "
     "--reference {reference} "
-    "--input {tumor_bam} "
+    "--input {bam} "
     "-tumor {tumor_sample_name} "
-    "--input {normal_bam} "
-    "-normal {normal_sample_name} "
     "{germline_resource_option} "
-    "{panel_of_normals_option} "
     "--output {output} "
     "-nct {snakemake.threads} "
     ")"

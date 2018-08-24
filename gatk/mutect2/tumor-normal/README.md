@@ -1,3 +1,18 @@
+# Mutect2/tumor-normal ([doc](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_Mutect2.php))
+
+call somatic SNPs and indels when matched tumor & normal samples are given.
+
+## Note
+
+This wrapper is largely inspired by [this wonderful tutorial on Mutect2](https://gatkforums.broadinstitute.org/gatk/discussion/11136).
+
+## IO
+
+- *{tumor_sample}*.bam, *{normal_sample}*.bam, reference -> *{tumor_sample}*.vcf.gz
+
+## Example snakemake rules
+
+```python
 rule mutect2_tumor_normal:
     input:
         # Required arguments.
@@ -14,8 +29,8 @@ rule mutect2_tumor_normal:
         '{tumor_sample}.vcf.gz'
     params:
         extra = '--disable-read-filter MateOnSameContigOrNoMappedMateReadFilter ' \
-        'af-of-alleles-not-in-resource 0.0000025 ',
-        java_options = ''
+        'af-of-alleles-not-in-resource 0.0000025 '
     threads: 1
     wrapper:
-        'http://dohlee-bio.info:9193/gatk/mutect2/tumor_normal'
+        'http://dohlee-bio.info:9193/gatk/mutect2/tumor-normal'
+```
