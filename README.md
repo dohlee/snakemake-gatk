@@ -20,6 +20,8 @@ To utilize [public resources](https://console.cloud.google.com/storage/browser/g
 - **cnv**: copy number variant discovery
   - [create-read-count-panel-of-normals](gatk/cnv/create-read-count-panel-of-normals): wrapper for [CreateReadCountPanelOfNormals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_CreateReadCountPanelOfNormals.php)
   - [denoise-read-counts](gatk/cnv/denoise-read-counts): wrapper for [DenoiseReadCounts](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_DenoiseReadCounts.php)
+- **variant-filtering**: reduce the number of false-positive variant calls
+  - [create-somatic-panel-of-normals](gatk/variant-filtering/create-somatic-panel-of-normals): wrapper for [CreateSomaticPanelOfNormals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_CreateSomaticPanelOfNormals.php)
 - **preprocessing**: preprocess aligned read files
   - [mark-duplicates](gatk/preprocessing/mark-duplicates): wrapper for [MarkDuplicates](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.4.0/picard_sam_markduplicates_MarkDuplicates.php)
   - [base-recalibrator](gatk/preprocessing/base-recalibrator): wrapper for [BaseRecalibrator](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php)
