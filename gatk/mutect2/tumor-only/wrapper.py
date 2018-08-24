@@ -58,6 +58,7 @@ shell(
     "-tumor {sample_name} "
     "{germline_resource_option} "
     "--output {output} "
+    "{extra} "
     ")"
     "{log}"
 )
