@@ -32,6 +32,10 @@ java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx16g
 bam = snakemake.input.bam
 common_biallelic_variants = snakemake.input.common_biallelic_variants
 
+interval_option = ''
+if '-L' not in extra and '--intervals' not in extra:
+    interval_option = '--intervals %s' % common_biallelic_variants
+
 # Extract output
 output = snakemake.output[0]
 
@@ -44,6 +48,7 @@ shell(
     "{extra} "
     "--input {bam} "
     "--variant {common_biallelic_variants} "
+    "{interval_option} "
     "--output {output} "
     ")"
     "{log}"
