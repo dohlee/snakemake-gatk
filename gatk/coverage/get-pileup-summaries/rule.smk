@@ -1,4 +1,3 @@
-```python
 rule get_pileup_summaries:
     input:
         # Required arguments.
@@ -10,6 +9,6 @@ rule get_pileup_summaries:
     params:
         extra = '',
     threads: 1
+    logs: 'logs/gatk/get-pileup-summaries/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/coverage/get-pileup-summaries'
-```
