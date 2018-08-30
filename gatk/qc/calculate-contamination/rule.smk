@@ -8,5 +8,6 @@ rule calculate_contamination:
     params:
         extra = ''
     threads: 1
+    log: 'logs/gatk/calculate-contamination/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/qc/calculate-contamination'

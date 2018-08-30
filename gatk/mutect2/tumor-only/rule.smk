@@ -11,5 +11,6 @@ rule mutect2_tumor_only:
     params:
         extra = '--disable-read-filter MateOnSameContigOrNoMappedMateReadFilter '
     threads: 1
+    log: 'logs/gatk/mutect2-tumor-only/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/mutect2/tumor-only'

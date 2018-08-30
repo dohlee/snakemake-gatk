@@ -10,5 +10,6 @@ rule mark_duplicates:
         extra = '-MAX_FILE_HANDLES 2000'
         java_options = '-Xmx32g'
     threads: 1
+    log: 'logs/gatk/mark-duplicates/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/preprocessing/mark-duplicates'

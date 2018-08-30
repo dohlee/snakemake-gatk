@@ -8,7 +8,7 @@ filter somatic SNVs and indels called by Mutect2 with contamination table genera
 
 ## Example snakemake rule
 ```python
-rule create_somatic_panel_of_normals:
+rule filter_mutect_calls:
     input:
         # Required input.
         vcf = '{sample}.vcf.gz',
@@ -19,6 +19,7 @@ rule create_somatic_panel_of_normals:
         # Optional parameters. Omit if unused.
         extra = ''
     threads: 1
+    log: 'logs/gatk/filter-mutect-calls/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/variant-filtering/filter-mutect-calls'
 ```

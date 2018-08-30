@@ -18,9 +18,10 @@ rule mark_duplicates:
         '{sample}.MarkDuplicates.metrics.txt'
     params:
         # Optional parameters. Omit if unused.
+        extra = '-MAX_FILE_HANDLES 2000'
         java_options = '-Xmx32g'
     threads: 1
+    log: 'logs/gatk/mark-duplicates/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/preprocessing/mark-duplicates'
-
 ```

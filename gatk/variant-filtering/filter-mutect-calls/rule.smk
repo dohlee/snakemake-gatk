@@ -9,5 +9,6 @@ rule filter_mutect_calls:
         # Optional parameters. Omit if unused.
         extra = ''
     threads: 1
+    log: 'logs/gatk/filter-mutect-calls/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/variant-filtering/filter-mutect-calls'

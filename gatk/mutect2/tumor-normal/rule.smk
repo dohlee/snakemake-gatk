@@ -21,5 +21,6 @@ rule mutect2_tumor_normal:
         normal_sample_name = '',
         java_options = ''
     threads: 1
+    log: 'logs/gatk/mutect2-tumor-normal/{tumor_sample}_vs_{normal_sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/mutect2/tumor-normal'

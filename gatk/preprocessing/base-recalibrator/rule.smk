@@ -8,4 +8,5 @@ rule base_recalibrator:
         # Required output.
         '{sample}_recalibration.table'
     threads: 1
+    log: 'logs/gatk/base-recalibrator/{sample}.log'
     wrapper: 'http://dohlee-bio.info:9193/gatk/preprocessing/base-recalibrator'

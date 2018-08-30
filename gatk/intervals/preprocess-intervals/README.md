@@ -21,6 +21,7 @@ rule preprocess_interval:
         bin_length = '',
         padding = '',
     threads: 1
+    log: 'logs/gatk/preprocess-interval/preprocessed.intervals.list.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/intervals/preprocess-intervals'
 ```
