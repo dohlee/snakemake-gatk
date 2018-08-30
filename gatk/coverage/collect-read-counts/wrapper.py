@@ -28,26 +28,27 @@ log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
 
 # Extract required arguments.
-reference = snakemake.input.reference
+bam = snakemake.input.bam
+interval_list = snakemake.input.interval_list
 output = snakemake.output[0]
 
 # Extract optional arguments
 extra = snakemake.params.get('extra', '')
-interval_list = optionify_params('interval_list', '--intervals')
-bin_length = optionify_params('bin_length', '--bin-length')
-padding = optionify_params('padding', '--padding')
+if '--interval-merging-rule' not in extra and '-imr' not in extra:
+    interval_merging_rule_option = optionify_params('interval_merging_rule', '--interval-merging-rule')
+else:
+    interval_merging_rule_option = ''
 
 # Execute shell command.
 shell(
     "("
     "gatk "
     "{java_options} "
-    "PreprocessIntervals "
-    "--reference {reference} "
+    "CollectReadCounts "
+    "--input {bam} "
+    "--intervals {interval_list} "
     "--output {output} "
-    "{interval_list} "
-    "{bin_length} "
-    "{padding} "
+    "{interval_merging_rule_option} "
     "{extra} "
     ")"
     "{log}"

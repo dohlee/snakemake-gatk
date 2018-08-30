@@ -28,26 +28,25 @@ log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
 
 # Extract required arguments.
-reference = snakemake.input.reference
+input_command = ' '.join('-I ' + file for file in snakemake.input)
 output = snakemake.output[0]
 
 # Extract optional arguments
 extra = snakemake.params.get('extra', '')
-interval_list = optionify_params('interval_list', '--intervals')
-bin_length = optionify_params('bin_length', '--bin-length')
-padding = optionify_params('padding', '--padding')
+if '--annotated-intervals' not in extra:
+    annotated_intervals = optionify_input('annotated_intervals', '--annotated-intervals')
+else:
+    annotated_intervals = ''
 
 # Execute shell command.
 shell(
     "("
     "gatk "
     "{java_options} "
-    "PreprocessIntervals "
-    "--reference {reference} "
+    "CreateReadCountPanelOfNormals "
+    "{input_command} "
     "--output {output} "
-    "{interval_list} "
-    "{bin_length} "
-    "{padding} "
+    "{annotated_intervals} "
     "{extra} "
     ")"
     "{log}"

@@ -25,30 +25,24 @@ def optionify_params(parameter, option):
 # Extract log.
 log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
-java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
-
-# Extract required arguments.
-reference = snakemake.input.reference
-output = snakemake.output[0]
-
-# Extract optional arguments
 extra = snakemake.params.get('extra', '')
-interval_list = optionify_params('interval_list', '--intervals')
-bin_length = optionify_params('bin_length', '--bin-length')
-padding = optionify_params('padding', '--padding')
+java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx16g')
+
+# Extract required input arguments.
+pileup_summaries = snakemake.input.pileup_summaries
+
+# Extract output
+output = snakemake.output[0]
 
 # Execute shell command.
 shell(
     "("
     "gatk "
     "{java_options} "
-    "PreprocessIntervals "
-    "--reference {reference} "
-    "--output {output} "
-    "{interval_list} "
-    "{bin_length} "
-    "{padding} "
+    "CalculateContamination "
+    "--input {pileup_summaries} "
     "{extra} "
+    "--output {output} "
     ")"
     "{log}"
 )

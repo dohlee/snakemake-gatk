@@ -25,30 +25,31 @@ def optionify_params(parameter, option):
 # Extract log.
 log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 # Extract parameters.
-java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
-
-# Extract required arguments.
-reference = snakemake.input.reference
-output = snakemake.output[0]
-
-# Extract optional arguments
 extra = snakemake.params.get('extra', '')
-interval_list = optionify_params('interval_list', '--intervals')
-bin_length = optionify_params('bin_length', '--bin-length')
-padding = optionify_params('padding', '--padding')
+java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx16g')
+
+# Extract required input arguments.
+bam = snakemake.input.bam
+common_biallelic_variants = snakemake.input.common_biallelic_variants
+
+interval_option = ''
+if '-L' not in extra and '--intervals' not in extra:
+    interval_option = '--intervals %s' % common_biallelic_variants
+
+# Extract output
+output = snakemake.output[0]
 
 # Execute shell command.
 shell(
     "("
     "gatk "
     "{java_options} "
-    "PreprocessIntervals "
-    "--reference {reference} "
-    "--output {output} "
-    "{interval_list} "
-    "{bin_length} "
-    "{padding} "
+    "GetPileupSummaries "
     "{extra} "
+    "--input {bam} "
+    "--variant {common_biallelic_variants} "
+    "{interval_option} "
+    "--output {output} "
     ")"
     "{log}"
 )

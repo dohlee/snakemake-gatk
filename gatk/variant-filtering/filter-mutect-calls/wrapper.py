@@ -28,26 +28,22 @@ log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
 
 # Extract required arguments.
-reference = snakemake.input.reference
+vcf = snakemake.input.vcf
+contamination_table = snakemake.input.contamination_table
 output = snakemake.output[0]
 
 # Extract optional arguments
 extra = snakemake.params.get('extra', '')
-interval_list = optionify_params('interval_list', '--intervals')
-bin_length = optionify_params('bin_length', '--bin-length')
-padding = optionify_params('padding', '--padding')
 
 # Execute shell command.
 shell(
     "("
     "gatk "
     "{java_options} "
-    "PreprocessIntervals "
-    "--reference {reference} "
+    "FilterMutectCalls "
+    "--variant {vcf} "
+    "--contamination-table {contamination_table} "
     "--output {output} "
-    "{interval_list} "
-    "{bin_length} "
-    "{padding} "
     "{extra} "
     ")"
     "{log}"

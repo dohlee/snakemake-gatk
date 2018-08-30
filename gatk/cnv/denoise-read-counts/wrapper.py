@@ -28,26 +28,33 @@ log = snakemake.log_fmt_shell(stdout=False, stderr=True)
 java_options = '--java-options ' + snakemake.params.get('java_options', '-Xmx4g')
 
 # Extract required arguments.
-reference = snakemake.input.reference
-output = snakemake.output[0]
+input = snakemake.input.count_file
+standardized_cr = snakemake.output.standardized_copy_ratios
+denoised_cr = snakemake.output.denoised_copy_ratios
 
 # Extract optional arguments
 extra = snakemake.params.get('extra', '')
-interval_list = optionify_params('interval_list', '--intervals')
-bin_length = optionify_params('bin_length', '--bin-length')
-padding = optionify_params('padding', '--padding')
+if '--annotated-intervals' not in extra:
+    annotated_intervals_option = optionify_input('annotated_intervals', '--annotated-intervals')
+else:
+    annotated_intervals_option = ''
+
+if '--count-panel-of-normals' not in extra:
+    count_pon_option = optionify_input('count_panel_of_normals', '--count-panel-of-normals')
+else:
+    count_pon_option = ''
 
 # Execute shell command.
 shell(
     "("
     "gatk "
     "{java_options} "
-    "PreprocessIntervals "
-    "--reference {reference} "
-    "--output {output} "
-    "{interval_list} "
-    "{bin_length} "
-    "{padding} "
+    "DenoiseReadCounts "
+    "--input {input} "
+    "{annotated_intervals_option} "
+    "{count_pon_option} "
+    "--standardized-copy-ratios {standardized_cr} "
+    "--denoised-copy-ratios {denoised_cr} "
     "{extra} "
     ")"
     "{log}"
