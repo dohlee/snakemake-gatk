@@ -1,7 +1,7 @@
 rule calculate_contamination:
     input:
         # Required arguments.
-        pileup_summaries = '*{sample}*.pileupsummaries.table',
+        pileup_summaries = '{sample}.pileupsummaries.table',
         # Optional arguments. Omit unused files.
     output:
         '{sample}.contamination.table'

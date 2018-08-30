@@ -1,4 +1,4 @@
-rule mark_duplicates:
+rule apply_bqsr:
     input:
         bam = '{sample}.bam',
         reference = '{reference}.fasta',

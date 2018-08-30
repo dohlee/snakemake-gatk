@@ -1,4 +1,4 @@
-rule create_somatic_panel_of_normals:
+rule filter_mutect_calls:
     input:
         # Required input.
         vcf = '{sample}.vcf.gz',
