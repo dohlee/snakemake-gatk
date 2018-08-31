@@ -36,3 +36,5 @@ To utilize [public resources](https://console.cloud.google.com/storage/browser/g
   - [create-sequence-dictionary](gatk/reference/create-sequence-dictionary): wrapper for [CreateSequenceDictionary (Picard)](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/picard_sam_CreateSequenceDictionary.php)
 - **variant-filtering**: reduce the number of false-positive variant calls
   - [create-somatic-panel-of-normals](gatk/variant-filtering/create-somatic-panel-of-normals): wrapper for [CreateSomaticPanelOfNormals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_CreateSomaticPanelOfNormals.php)
+- **variant-manipulation**: deal with VCF files.
+  - [select-variants](gatk/variant-manipulation/select-variants): wrapper for [SelectVariants](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_variantutils_SelectVariants.php)
