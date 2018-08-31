@@ -26,7 +26,7 @@ else:
 
 # Too many file handles may throw an error.
 # The maximum number of opened file handles can be checked through `ulimit -n` command.
-if 'MAX_FILE_HANDLES' not in extra:
+if 'MAX_FILE_HANDLES' not in extra and snakemake.threads == 1:
     extra += ' -MAX_FILE_HANDLES 2000'
 
 # NOTE: If more than 1 threads are given,
