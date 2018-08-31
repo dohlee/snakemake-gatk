@@ -14,27 +14,62 @@ To utilize [public resources](https://console.cloud.google.com/storage/browser/g
 ## Available wrappers
 
 - **cnv**: copy number variant discovery
-  - [create-read-count-panel-of-normals](gatk/cnv/create-read-count-panel-of-normals): wrapper for [CreateReadCountPanelOfNormals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_CreateReadCountPanelOfNormals.php)
-  - [denoise-read-counts](gatk/cnv/denoise-read-counts): wrapper for [DenoiseReadCounts](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_DenoiseReadCounts.php)
+  - [create-read-count-panel-of-normals][create-read-count-panel-of-normals]: wrapper for [CreateReadCountPanelOfNormals](CreateReadCountPanelOfNormals)
+  - [denoise-read-counts](gatk/cnv/denoise-read-counts): wrapper for [DenoiseReadCounts][DenoiseReadCounts]
 - **coverage**: count reads
-  - [collect-read-counts](gatk/coverage/collect-read-counts): wrapper for [CollectReadCounts](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_CollectReadCounts.php)
-  - [get-pileup-summaries](gatk/coverage/get-pileup-summaries): wrapper for [GetPileupSummaries](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_contamination_GetPileupSummaries.php)
+  - [collect-read-counts][collect-read-counts]: wrapper for [CollectReadCounts][CollectReadCounts]
+  - [get-pileup-summaries][get-pileup-summaries]: wrapper for [GetPileupSummaries][GetPileupSummaries]
 - **intervals**: manipulate list of genomic intervals
-  - [preprocess-intervals](gatk/intervals/preprocess-intervals): wrapper for [PreprocessIntervals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_PreprocessIntervals.php)
+  - [preprocess-intervals][preprocess-intervals]: wrapper for [PreprocessIntervals][PreprocessIntervals]
 - **misc**: miscellaneous
-  - [index-feature-file](gatk/misc/index-feature-file): wrapper for [IndexFeatureFile](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/org_broadinstitute_hellbender_tools_IndexFeatureFile.php)
-- [**mutect2**](gatk/mutect2): call somatic SNPs and indels
-  - [tumor-normal](gatk/mutect2/tumor-normal): wrapper for [Mutect2 with tumor & normal sample](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_Mutect2.php)
-  - [tumor-only](gatk/mutect2/tumor-only): wrapper for [Mutect2 with single sample](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_Mutect2.php)
+  - [index-feature-file][index-feature-file]: wrapper for [IndexFeatureFile][IndexFeatureFile]
+- [**mutect2**][mutect2]: call somatic SNPs and indels
+  - [tumor-normal][tumor-normal]: wrapper for [Mutect2 with tumor & normal sample][Mutect2 with tumor & normal sample]
+  - [tumor-only][tumor-only]: wrapper for [Mutect2 with single sample][Mutect2 with single sample]
 - **preprocessing**: preprocess aligned read files
-  - [mark-duplicates](gatk/preprocessing/mark-duplicates): wrapper for [MarkDuplicates](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.4.0/picard_sam_markduplicates_MarkDuplicates.php)
-  - [base-recalibrator](gatk/preprocessing/base-recalibrator): wrapper for [BaseRecalibrator](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php)
-  - [apply-bqsr](gatk/preprocessing/apply-bqsr): wrapper for [ApplyBQSR](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_ApplyBQSR.php)
+  - [mark-duplicates][mark-duplicates]: wrapper for [MarkDuplicates][MarkDuplicates]
+  - [base-recalibrator][base-recalibrator]: wrapper for [BaseRecalibrator][BaseRecalibrator]
+  - [apply-bqsr][apply-bqsr]: wrapper for [ApplyBQSR][ApplyBQSR]
 - **qc**: quality control
-  - [calculate-contamination](gatk/qc/calculate-contamination): wrapper for [CalculateContamination](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_contamination_CalculateContamination.php)
+  - [calculate-contamination][calculate-contamination]: wrapper for [CalculateContamination][CalculateContamination]
 - **reference**: manipulate FASTA references
-  - [create-sequence-dictionary](gatk/reference/create-sequence-dictionary): wrapper for [CreateSequenceDictionary (Picard)](https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/picard_sam_CreateSequenceDictionary.php)
+  - [create-sequence-dictionary][create-sequence-dictionary]: wrapper for [CreateSequenceDictionary (Picard)][CreateSequenceDictionary (Picard)]
 - **variant-filtering**: reduce the number of false-positive variant calls
-  - [create-somatic-panel-of-normals](gatk/variant-filtering/create-somatic-panel-of-normals): wrapper for [CreateSomaticPanelOfNormals](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_CreateSomaticPanelOfNormals.php)
+  - [create-somatic-panel-of-normals][create-somatic-panel-of-normals]: wrapper for [CreateSomaticPanelOfNormals][CreateSomaticPanelOfNormals]
 - **variant-manipulation**: deal with VCF files.
-  - [select-variants](gatk/variant-manipulation/select-variants): wrapper for [SelectVariants](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_variantutils_SelectVariants.php)
+  - [select-variants][select-variants]: wrapper for [SelectVariants][SelectVariants]
+
+
+[create-read-count-panel-of-normals]: [gatk/cnv/create-read-count-panel-of-normals]
+[denoise-read-counts]: [gatk/cnv/denoise-read-counts]
+[collect-read-counts]: [gatk/coverage/collect-read-counts]
+[get-pileup-summaries]: [gatk/coverage/get-pileup-summaries]
+[preprocess-intervals]: [gatk/intervals/preprocess-intervals]
+[index-feature-file]: [gatk/misc/index-feature-file]
+[mutect2]: [gatk/mutect2]
+[tumor-normal]: [gatk/mutect2/tumor-normal]
+[tumor-only]: [gatk/mutect2/tumor-only]
+[mark-duplicates]: [gatk/preprocessing/mark-duplicates]
+[base-recalibrator]: [gatk/preprocessing/base-recalibrator]
+[apply-bqsr]: [gatk/preprocessing/apply-bqsr]
+[calculate-contamination]: [gatk/qc/calculate-contamination]
+[create-sequence-dictionary]: [gatk/reference/create-sequence-dictionary]
+[create-somatic-panel-of-normals]: [gatk/variant-filtering/create-somatic-panel-of-normals]
+[select-variants]: [gatk/variant-manipulation/select-variants]
+
+[CreateReadCountPanelOfNormals]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_CreateReadCountPanelOfNormals.php]
+[DenoiseReadCounts]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_DenoiseReadCounts.php]
+[CollectReadCounts]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_CollectReadCounts.php]
+[GetPileupSummaries]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_contamination_GetPileupSummaries.php]
+[PreprocessIntervals]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_PreprocessIntervals.php]
+[PreprocessIntervals]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_copynumber_PreprocessIntervals.php]
+[IndexFeatureFile]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/org_broadinstitute_hellbender_tools_IndexFeatureFile.php]
+[Mutect2 with tumor & normal sample]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_Mutect2.php]
+[Mutect2 with single sample]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_Mutect2.php]
+[MarkDuplicates]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.4.0/picard_sam_markduplicates_MarkDuplicates.php]
+[BaseRecalibrator]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_BaseRecalibrator.php]
+[ApplyBQSR]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_bqsr_ApplyBQSR.php]
+[CalculateContamination]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_contamination_CalculateContamination.php]
+[CreateSequenceDictionary (Picard)]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/4.0.3.0/picard_sam_CreateSequenceDictionary.php]
+[CreateSomaticPanelOfNormals]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_mutect_CreateSomaticPanelOfNormals.php]
+[SelectVariants]: [https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_variantutils_SelectVariants.php]
