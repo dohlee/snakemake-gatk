@@ -1,17 +1,17 @@
-# snakemake-gatk
+<center><h1>snakemake-gatk</h1></center>
 
-Snakemake wrappers for GATK.
+<center>Snakemake wrappers for GATK.</center>
 
-## Requirements
+<center><h2>Requirements</h2></center>
 
 - [GATK 4.0.8.1](https://software.broadinstitute.org/gatk/download/)
 - Executable `gatk` in `$PATH`
 
-## Recommended
+<center><h2>Recommended</h2></center>
 
 To utilize [public resources](https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0) of Broad Institute, using **hg38 reference genome** (which can also be downloaded at [public resources](https://console.cloud.google.com/storage/browser/genomics-public-data/resources/broad/hg38/v0)) is higly recommended. The link may get outdated by any time, so please refer to the official website of GATK to get the latest version of the resources. (Last updated: 2018.08.23)
 
-## Available wrappers
+<center><h2>Available wrappers</h2></center>
 
 - **cnv**: copy number variant discovery
   - [create-read-count-panel-of-normals][create-read-count-panel-of-normals]: wrapper for [CreateReadCountPanelOfNormals](CreateReadCountPanelOfNormals)
