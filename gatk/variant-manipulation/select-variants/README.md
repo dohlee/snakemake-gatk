@@ -1,0 +1,28 @@
+# SelectVariants ([doc](https://software.broadinstitute.org/gatk/documentation/tooldocs/current/org_broadinstitute_hellbender_tools_walkers_variantutils_SelectVariants.php))
+
+select a subset of variants from a VCF file.
+
+## IO
+
+- *{input}*.vcf.gz -> *{output}*.vcf.gz
+
+## Example snakemake rule
+```python
+rule select_variants:
+    input:
+        # Required input.
+        vcf = '{input}.vcf.gz',
+    output:
+        # Required output. You may change output name as you want.
+        '{input}.selected.vcf.gz'
+    params:
+        # Optional parameters. Omit if unused.
+        select_type_to_include = '',  # Type of variants goes here. e.g. INDEL, SNP, MIXED, MNP, SYMBOLIC, NO_VARIATION
+        select_type_to_exclude = '',  # Type of variants goes here. e.g. INDEL, SNP, MIXED, MNP, SYMBOLIC, NO_VARIATION
+        restrict_alleles_to = '', # Select only variants of a particular allelicity.
+        extra = ''
+    threads: 1
+    log: 'logs/gatk/select-variants/{sample}.log'
+    wrapper:
+        'http://dohlee-bio.info:9193/gatk/variant-manipulation/select-variants'
+```
