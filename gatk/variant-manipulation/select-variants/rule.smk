@@ -13,6 +13,6 @@ rule select_variants:
         intervals = '',  # One or more genomics intervals over which to operate.
         extra = ''
     threads: 1
-    log: 'logs/gatk/select-variants/{sample}.log'
+    log: 'logs/gatk/select-variants/{input}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/variant-manipulation/select-variants'
