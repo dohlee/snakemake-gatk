@@ -18,8 +18,10 @@ rule get_pileup_summaries:
     output:
         '{sample}.pileupsummaries.table'
     params:
+        java_options = '-Xmx4g',
         extra = '',
     threads: 1
+    resources: RAM = 4
     logs: 'logs/gatk/get-pileup-summaries/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/coverage/get-pileup-summaries'

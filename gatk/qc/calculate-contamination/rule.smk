@@ -6,8 +6,10 @@ rule calculate_contamination:
     output:
         '{sample}.contamination.table'
     params:
-        extra = ''
+        java_options = '-Xmx4g',
+        extra = '',
     threads: 1
+    resources: RAM = 4
     log: 'logs/gatk/calculate-contamination/{sample}.log'
     wrapper:
         'http://dohlee-bio.info:9193/gatk/qc/calculate-contamination'
